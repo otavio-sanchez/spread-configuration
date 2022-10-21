@@ -1,13 +1,14 @@
-const prod = process.env.NODE_ENV === 'prod';
+const prod = process.env.NODE_ENV === 'prod'
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   mode: prod ? 'production' : 'development',
   entry: './src/App.tsx',
   output: {
-    path: __dirname + '/dist/',
+    // eslint-disable-next-line n/no-path-concat
+    path: __dirname + '/dist/'
   },
   module: {
     rules: [
@@ -15,21 +16,21 @@ module.exports = {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         resolve: {
-          extensions: ['.ts', '.tsx', '.js', '.json'],
+          extensions: ['.ts', '.tsx', '.js', '.json']
         },
-        use: 'ts-loader',
+        use: 'ts-loader'
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      },
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
+      }
     ]
   },
   devtool: prod ? undefined : 'source-map',
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'public/index.html',
+      template: 'public/index.html'
     }),
-    new MiniCssExtractPlugin(),
-  ],
-};
+    new MiniCssExtractPlugin()
+  ]
+}
