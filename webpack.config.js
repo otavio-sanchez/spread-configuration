@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   mode: prod ? 'production' : 'development',
-  entry: './src/App.tsx',
+  entry: './src/index.tsx',
   output: {
     // eslint-disable-next-line n/no-path-concat
     path: __dirname + '/dist/'

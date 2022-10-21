@@ -1,6 +1,20 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { routes } from './routes';
+import { TConfigRoute } from './routes/types';
 
-const container = document.getElementById('app-root')!;
-const root = createRoot(container);
-root.render(<h1>Spread Configuration</h1>);
+function App() {
+	return (
+		<BrowserRouter>
+			<Routes>
+				{routes.map(
+					({ component: Component, path, id }: TConfigRoute): JSX.Element => (
+						<Route key={id} path={path} element={<Component />} />
+					)
+				)}
+			</Routes>
+		</BrowserRouter>
+	);
+}
+
+export default App;
