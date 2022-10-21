@@ -1,0 +1,22 @@
+{
+  "name": "spread-configuration",
+  "version": "0.0.1",
+  "description": "Gerenciamento de spread",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/otavio-sanchez/spread-configuration.git"
+  },
+  "author": "Otávio Sanchez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/otavio-sanchez/spread-configuration/issues"
+  },
+  "homepage": "https://github.com/otavio-sanchez/spread-configuration#readme",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}
