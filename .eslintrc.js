@@ -80,7 +80,7 @@ module.exports = {
       'error',
       {
         devDependencies: [
-          '**/*.spec.js'
+          '**/*.spec.tsx'
         ]
       }
     ],

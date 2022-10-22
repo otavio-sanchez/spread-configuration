@@ -1,5 +1,5 @@
-import { TConfigRoute } from './types';
 import SpreadConfiguration from '../pages/SpreadConfiguration';
+import { TConfigRoute } from './types';
 
 const routesPath = {
 	spreadConfiguration: '/',
