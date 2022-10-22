@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import AppLayout from './containers/App/AppLayout';
 import AppTheme from './containers/App/AppTheme';
 import { routes } from './routes';
