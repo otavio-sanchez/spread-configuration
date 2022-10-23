@@ -1,5 +1,6 @@
 import React from 'react';
 import { withTheme, ThemeProvider } from 'styled-components';
+
 import { mainTheme } from '../../../themes';
 import { TPropsAppTheme } from './types';
 

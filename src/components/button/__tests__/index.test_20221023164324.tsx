@@ -12,10 +12,9 @@ describe('Button', () => {
 	it('Renderizar e ação de clique', () => {
 		const onClick = jest.fn();
 		const text = 'action';
-		const { getByText } = renderWithTheme(
-			<Button onClick={onClick}>{text}</Button>
-		);
-
+		const { getByText } = 
+			renderWithTheme(<Button onClick={onClick}>{text}</Button>)
+	
 		const button = getByText(text);
 
 		fireEvent.click(button);
@@ -28,14 +27,16 @@ describe('Button', () => {
 		const onClick = jest.fn();
 		const text = 'abc';
 
-		const { getByText } = renderWithTheme(
-			<Button onClick={onClick} typeButton="icon" color="success">
-				{text}
-			</Button>
-		);
+		const { getByText } = 
+			renderWithTheme(
+				<Button onClick={onClick} typeButton="icon" color="success">
+					{text}
+				</Button>
+			)
+	
 
 		const button = getByText(text);
 
-		expect(button).toHaveAttribute('color', `success`);
+		expect(button).toHaveAttribute('color',`success`)
 	});
 });

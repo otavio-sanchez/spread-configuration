@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { IPropsComponentButton } from '../types';
 
 export const ButtonComponent = styled.button<IPropsComponentButton>`
-	background-color: ${({ color, theme, type }: IPropsComponentButton) =>
-		type === 'icon' ? 'transparent' : color && theme.colors[color].main};
+	background-color: ${({ color, theme, typeButton }: IPropsComponentButton) =>
+		typeButton === 'icon' ? 'transparent' : color && theme.colors[color].main};
 	color: #fff;
 	cursor: pointer;
 	border: 0px solid #fff;

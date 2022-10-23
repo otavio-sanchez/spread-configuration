@@ -8,10 +8,10 @@ function Button({
 	children,
 	onClick,
 	color = 'primary',
-	type = 'default',
+	typeButton = 'default',
 }: IPropsButton) {
 	return (
-		<ButtonComponent color={color} onClick={onClick} type={type}>
+		<ButtonComponent color={color} onClick={onClick} typeButton={typeButton}>
 			{children}
 		</ButtonComponent>
 	);
