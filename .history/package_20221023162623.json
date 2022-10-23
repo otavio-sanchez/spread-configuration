@@ -56,7 +56,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.2",
+<<<<<<< HEAD
     "styled-components": "^5.3.6"
+=======
+    "ts-jest": "^29.0.3"
+>>>>>>> 4081ffb4fb3729376762be1d90f8491149594735
   },
   "prepare": {
     "scripts": {
