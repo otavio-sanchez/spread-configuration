@@ -3,8 +3,8 @@ import { Content, LoadingIcon } from './style';
 
 function Loading(): JSX.Element {
 	return (
-		<Content>
-			<LoadingIcon width={30} data-testid="icon-loading" />
+		<Content data-testid="icon-loading" >
+			<LoadingIcon />
 		</Content>
 	);
 }

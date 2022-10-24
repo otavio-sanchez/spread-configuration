@@ -9,7 +9,7 @@ function Header({ title }: IPropsHeader): JSX.Element {
 			<Container maxWidth={1420} alternative>
 				<Row gridTemplateColumns="auto">
 					<Col align="start-flex">
-						<Title>{title}</Title>
+						<Title data-testid="main-title">{title}</Title>
 					</Col>
 				</Row>
 			</Container>
