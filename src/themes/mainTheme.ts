@@ -25,6 +25,13 @@ const size = {
 		small: '12px',
 		medium: '14px',
 		large: '16px',
+		xLarge: '26px',
+	},
+	container: {
+		maxSize: '1480px',
+		desktopWidth: 1280,
+		tabletWidth: 860,
+		mobileWidth: 720,
 	},
 };
 

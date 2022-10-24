@@ -4,7 +4,6 @@ import { fireEvent } from '@testing-library/react';
 import React from 'react';
 
 import { renderWithTheme } from '../../../utils/styleTest';
-import { mainTheme } from '../../../themes';
 
 import Button from '..';
 

@@ -24,6 +24,14 @@ export type TTheme = {
 		font: {
 			small: string;
 			medium: string;
+			large: string;
+			xLarge: string;
+		};
+		container: {
+			maxSize: string;
+			desktopWidth: number;
+			tabletWidth: number;
+			mobileWidth: number;
 		};
 	};
 	font: {
