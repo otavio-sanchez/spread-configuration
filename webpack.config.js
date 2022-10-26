@@ -1,7 +1,10 @@
+const { DefinePlugin }  =  require('webpack') 
 const prod = process.env.NODE_ENV === 'prod'
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+require('dotenv').config({ path: './.env' }); 
+
 
 module.exports = {
   mode: prod ? 'production' : 'development',
@@ -21,6 +24,10 @@ module.exports = {
         use: 'ts-loader'
       },
       {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
+      {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader']
       }
@@ -28,9 +35,12 @@ module.exports = {
   },
   devtool: prod ? undefined : 'source-map',
   plugins: [
+    new DefinePlugin({
+      "process.env": JSON.stringify(process.env)
+    }),
     new HtmlWebpackPlugin({
       template: 'public/index.html'
     }),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin(),
   ]
 }

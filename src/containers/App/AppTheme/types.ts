@@ -1,6 +1,6 @@
 import { TTheme } from '../../../themes';
 
 export type TPropsAppTheme = {
-	children: JSX.Element;
+	children: JSX.Element | JSX.Element[];
 	theme: TTheme;
 };

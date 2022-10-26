@@ -9,6 +9,10 @@ const colors = {
 		300: '#4E5459',
 		400: '#2C2C2C',
 		500: '#1D1D1D',
+		600: '#292929',
+		700: '#171717',
+		800: '#4A4D52',
+		900: '#343434',
 	},
 	success: {
 		main: '#50A450',
@@ -25,6 +29,13 @@ const size = {
 		small: '12px',
 		medium: '14px',
 		large: '16px',
+		xLarge: '26px',
+	},
+	container: {
+		maxSize: '1480px',
+		desktopWidth: 1280,
+		tabletWidth: 860,
+		mobileWidth: 720,
 	},
 };
 
