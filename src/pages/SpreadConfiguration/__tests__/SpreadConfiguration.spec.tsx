@@ -1,12 +1,12 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { renderWithTheme } from '../../../utils/styleTest';
 
 import SpreadConfiguration from '..';
 
 describe('SpreadConfiguration', () => {
 	test('Teste de renderização', () => {
-		const { getByTestId } = render(<SpreadConfiguration />);
+		const { getByText } = renderWithTheme(<SpreadConfiguration />);
 
-		expect(getByTestId('main-title')).toBeTruthy();
+		expect(getByText('Spread Configuration')).toBeTruthy();
 	});
 });
