@@ -22,6 +22,10 @@ const colors = {
 		main: '#CA5252',
 		text: '#FF6E63',
 	},
+	info: {
+		main: '#4A4D52',
+		text: '#FFFFFF',
+	},
 };
 
 const size = {

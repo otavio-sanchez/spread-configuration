@@ -39,7 +39,7 @@ const store = (set: any) => ({
 		try {
 			set({ loading: true, error: false }, false);
 			set((state: TStore) => {
-				const spreadsAdded = state.spreads.concat(spread);
+				const spreadsAdded = [spread].concat(state.spreads);
 				return {
 					spreads: spreadsAdded,
 				};
@@ -72,8 +72,9 @@ const store = (set: any) => ({
 	},
 	fetchSpread: async () => {
 		try {
+			set({ loading: true, error: false }, false);
 			const { data } = await Spread.get();
-			set({ loading: true, error: false, spreads: data }, false);
+			set({ spreads: data }, false);
 		} catch (error) {
 			set({ error: true, spreads: data.body }, false);
 		} finally {

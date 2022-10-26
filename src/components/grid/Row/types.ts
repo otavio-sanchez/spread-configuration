@@ -6,4 +6,5 @@ export interface IPropsRow {
 	spacingRow?: number;
 	gridTemplateColumns?: string;
 	spacingColumn?: number;
+	align?: string;
 }

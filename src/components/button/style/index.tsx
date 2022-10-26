@@ -8,6 +8,7 @@ export const ButtonComponent = styled.button<IPropsComponentButton>`
 	color: #fff;
 	cursor: pointer;
 	border: 0px solid #fff;
+	border-radius: 4px;
 	padding: ${({ theme }: IPropsComponentButton) =>
 		`${theme.space(1)} ${theme.space(2)}`};
 	font-family: ${({ theme }: IPropsComponentButton) => theme.font.family};

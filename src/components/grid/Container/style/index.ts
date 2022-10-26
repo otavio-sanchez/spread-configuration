@@ -5,6 +5,7 @@ import { TTheme } from '../../../../themes';
 const ContainerContent = styled.section<{
 	maxWidth?: number;
 	alternative?: boolean;
+	align?: string;
 }>`
 	position: relative;
 	display: block;
@@ -12,7 +13,8 @@ const ContainerContent = styled.section<{
 	width: ${({ alternative }): string => (alternative ? '100%' : '80vw')};
 	margin: auto;
 	overflow-x: hidden;
-	${({ maxWidth }): string => (maxWidth ? `max-width: ${maxWidth}px;` : '')}
+	max-width: ${({ maxWidth }): string =>
+		maxWidth ? `${maxWidth}px;` : `100%`};
 `;
 
 export { ContainerContent };

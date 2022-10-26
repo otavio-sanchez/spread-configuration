@@ -7,7 +7,7 @@ export interface IPropsButton extends IPropsComponentButton {
 
 export interface IPropsComponentButton {
 	typeButton?: 'default' | 'icon';
-	color?: 'primary' | 'success' | 'error';
+	color?: 'primary' | 'success' | 'error' | 'info';
 	theme: TTheme;
 	disabled?: boolean;
 }

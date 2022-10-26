@@ -1,9 +1,10 @@
 import { useFormik } from 'formik';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Modal from 'react-modal';
 import * as Yup from 'yup';
 
 import { types } from '../../commons/constants/spread';
+import useOnClickOutside from '../../commons/hooks/useOnClickOutside';
 import { TSpread } from '../../commons/types';
 import Button from '../../components/button';
 import Input from '../../components/input';
@@ -13,6 +14,8 @@ import { IPropsAddRange } from './types';
 
 function AddRange({ addRange }: IPropsAddRange) {
 	const [open, setOpen] = useState(false);
+	const ref = useRef<HTMLDivElement>(null);
+	useOnClickOutside(ref, () => setOpen(false));
 
 	const validationSchema = Yup.object({
 		id: Yup.number().required(),
@@ -37,7 +40,11 @@ function AddRange({ addRange }: IPropsAddRange) {
 			spreadPercentil: '',
 		},
 		validationSchema,
-		onSubmit: (values: TSpread) => addRange(values),
+		onSubmit: (values: TSpread) => {
+			addRange(values);
+			setOpen(false);
+			formik.resetForm();
+		},
 	});
 
 	const onChange = (name: string, value: string | number) => {
@@ -47,104 +54,110 @@ function AddRange({ addRange }: IPropsAddRange) {
 	return (
 		<>
 			<Modal isOpen={open} contentLabel="Add Range" style={styleModal}>
-				<HeaderModal>Add New Spread Range</HeaderModal>
-				<Form onSubmit={formik.handleSubmit}>
-					<Select
-						id="spreadTypeId"
-						name="spreadTypeId"
-						label="Spread Type"
-						data-testid="spreadTypeId-input"
-						selected={formik.values.spreadTypeId.toString()}
-						onChange={onChange}
-						options={[
-							{ label: 'WORKING HOURS', value: types.WORKING_HOURS },
-							{ label: 'NIGHT SHIFT', value: types.NIGHT_SHIFT },
-						]}
-						error={
-							formik.touched.spreadTypeId && Boolean(formik.errors.spreadTypeId)
-						}
-					/>
-					<Input
-						id="accountId"
-						name="accountId"
-						data-testid="accountId-input"
-						value={formik.values.accountId}
-						onChange={onChange}
-						error={formik.touched.accountId && Boolean(formik.errors.accountId)}
-						placeholder="Account Id"
-						label="Account Id"
-						alternative
-					/>
-					<Input
-						id="symbol"
-						name="symbol"
-						data-testid="symbol-input"
-						type="text"
-						value={formik.values.symbol}
-						onChange={onChange}
-						error={formik.touched.symbol && Boolean(formik.errors.symbol)}
-						placeholder="Symbol"
-						label="Symbol"
-						alternative
-					/>
-					<Select
-						id="side"
-						name="side"
-						label="Side"
-						data-testid="side-input"
-						selected={formik.values.spreadTypeId.toString()}
-						onChange={onChange}
-						options={[
-							{ label: 'BUY', value: 'BUY' },
-							{ label: 'SELL', value: 'SELL' },
-						]}
-						error={formik.touched.side && Boolean(formik.errors.side)}
-					/>
-					<Input
-						id="notionalFrom"
-						name="notionalFrom"
-						data-testid="notionalTo-input"
-						value={formik.values.notionalFrom}
-						onChange={onChange}
-						error={
-							formik.touched.notionalFrom && Boolean(formik.errors.notionalFrom)
-						}
-						placeholder="Notional From"
-						label="Notional From"
-						alternative
-					/>
-					<Input
-						id="notionalTo"
-						name="notionalTo"
-						data-testid="notionalTo-input"
-						value={formik.values.notionalTo}
-						onChange={onChange}
-						placeholder="Notional To"
-						error={
-							formik.touched.notionalTo && Boolean(formik.errors.notionalTo)
-						}
-						label="Notional To"
-						alternative
-					/>
+				<div ref={ref}>
+					<HeaderModal>Add New Spread Range</HeaderModal>
+					<Form onSubmit={formik.handleSubmit}>
+						<Select
+							id="spreadTypeId"
+							name="spreadTypeId"
+							label="Spread Type"
+							data-testid="spreadTypeId-input"
+							selected={formik.values.spreadTypeId.toString()}
+							onChange={onChange}
+							options={[
+								{ label: 'WORKING HOURS', value: types.WORKING_HOURS },
+								{ label: 'NIGHT SHIFT', value: types.NIGHT_SHIFT },
+							]}
+							error={
+								formik.touched.spreadTypeId &&
+								Boolean(formik.errors.spreadTypeId)
+							}
+						/>
+						<Input
+							id="accountId"
+							name="accountId"
+							data-testid="accountId-input"
+							value={formik.values.accountId}
+							onChange={onChange}
+							error={
+								formik.touched.accountId && Boolean(formik.errors.accountId)
+							}
+							placeholder="Account Id"
+							label="Account Id"
+							alternative
+						/>
+						<Input
+							id="symbol"
+							name="symbol"
+							data-testid="symbol-input"
+							type="text"
+							value={formik.values.symbol}
+							onChange={onChange}
+							error={formik.touched.symbol && Boolean(formik.errors.symbol)}
+							placeholder="Symbol"
+							label="Symbol"
+							alternative
+						/>
+						<Select
+							id="side"
+							name="side"
+							label="Side"
+							data-testid="side-input"
+							selected={formik.values.spreadTypeId.toString()}
+							onChange={onChange}
+							options={[
+								{ label: 'BUY', value: 'BUY' },
+								{ label: 'SELL', value: 'SELL' },
+							]}
+							error={formik.touched.side && Boolean(formik.errors.side)}
+						/>
+						<Input
+							id="notionalFrom"
+							name="notionalFrom"
+							data-testid="notionalTo-input"
+							value={formik.values.notionalFrom}
+							onChange={onChange}
+							error={
+								formik.touched.notionalFrom &&
+								Boolean(formik.errors.notionalFrom)
+							}
+							placeholder="Notional From"
+							label="Notional From"
+							alternative
+						/>
+						<Input
+							id="notionalTo"
+							name="notionalTo"
+							data-testid="notionalTo-input"
+							value={formik.values.notionalTo}
+							onChange={onChange}
+							placeholder="Notional To"
+							error={
+								formik.touched.notionalTo && Boolean(formik.errors.notionalTo)
+							}
+							label="Notional To"
+							alternative
+						/>
 
-					<Input
-						id="spreadPercentil"
-						name="spreadPercentil"
-						data-testid="spreadPercentil-input"
-						value={formik.values.spreadPercentil}
-						onChange={onChange}
-						placeholder="Spread Percentil"
-						error={
-							formik.touched.spreadPercentil &&
-							Boolean(formik.errors.spreadPercentil)
-						}
-						label="Spread Percentil"
-						alternative
-					/>
-					<Button color="success" onClick={() => formik.handleSubmit()}>
-						Add Spread
-					</Button>
-				</Form>
+						<Input
+							id="spreadPercentil"
+							name="spreadPercentil"
+							data-testid="spreadPercentil-input"
+							value={formik.values.spreadPercentil}
+							onChange={onChange}
+							placeholder="Spread Percentil"
+							error={
+								formik.touched.spreadPercentil &&
+								Boolean(formik.errors.spreadPercentil)
+							}
+							label="Spread Percentil"
+							alternative
+						/>
+						<Button color="success" onClick={() => formik.handleSubmit()}>
+							Add Spread
+						</Button>
+					</Form>
+				</div>
 			</Modal>
 			<Button color="success" onClick={() => setOpen(true)}>
 				Add Range

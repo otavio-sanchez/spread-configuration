@@ -7,6 +7,12 @@ export const Content = styled.section`
 	background-color: ${({ theme }: { theme: TTheme }) => theme.colors.grey[200]};
 	border-radius: 4px;
 	margin-bottom: ${({ theme }: { theme: TTheme }) => theme.space(3)};
+	overflow-x: scroll;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+	&::-webkit-scrollbar {
+		display: none;
+	}
 `;
 
 export const Icon = styled.div<any>`

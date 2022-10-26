@@ -20,6 +20,7 @@ const Input = styled.input<IInput>`
 	border: 0px;
 	padding: ${({ theme }: IPropsComponentInput) => theme.space(1)} 0px;
 	width: 100%;
+	min-width: 120px;
 	z-index: 1;
 	position: relative;
 	box-sizing: border-box;

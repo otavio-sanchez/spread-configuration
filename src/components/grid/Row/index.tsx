@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { RowContent } from './style';
 import { IPropsRow } from './types';
 
@@ -10,6 +11,7 @@ function Row({
 	spacingRow,
 	gridTemplateColumns,
 	spacingColumn,
+	align,
 }: IPropsRow): JSX.Element {
 	return (
 		<RowContent
@@ -19,6 +21,7 @@ function Row({
 			spacingRow={spacingRow}
 			gridTemplateColumns={gridTemplateColumns}
 			spacingColumn={spacingColumn}
+			align={align}
 		>
 			{children}
 		</RowContent>

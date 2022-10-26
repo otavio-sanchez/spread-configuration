@@ -23,6 +23,10 @@ export type TTheme = {
 			main: string;
 			text: string;
 		};
+		info: {
+			main: string;
+			text: string;
+		};
 	};
 	size: {
 		font: {

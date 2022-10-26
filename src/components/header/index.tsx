@@ -12,11 +12,13 @@ function Header({ title, children = <div /> }: IPropsHeader): JSX.Element {
 					gridTemplateColumns="auto auto"
 					columnsDesktop={2}
 					columnsTablet={1}
+					columnsMobile={1}
+					align="start"
 				>
-					<Col align="start-flex">
+					<Col align="start">
 						<Title data-testid="main-title">{title}</Title>
 					</Col>
-					<Col align="start-end">{children}</Col>
+					<Col align="start">{children}</Col>
 				</Row>
 			</Container>
 		</HeaderContent>

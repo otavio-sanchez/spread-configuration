@@ -16,11 +16,13 @@ const RowContent = styled.div<{
 	spacingRow?: number;
 	gridTemplateColumns?: string;
 	spacingColumn?: number;
+	align?: string;
 }>`
 	width: 100%;
 	align-items: center;
 	position: relative;
 	display: grid;
+	${({ align }): string => (align ? `justify-content: ${align};` : '')}
 	grid-column-gap: 10px;
 	${({ gridTemplateColumns }) =>
 		gridTemplateColumns && `grid-template-columns: ${gridTemplateColumns};`}

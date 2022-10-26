@@ -12,6 +12,7 @@ const Title = styled.h1`
 	font-size: ${({ theme }: { theme: TTheme }) => theme.size.font.xLarge};
 	width: 100%;
 	display: inline-block;
+	min-width: 266px;
 `;
 
 export { HeaderContent, Title };
