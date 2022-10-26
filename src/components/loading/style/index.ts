@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+
 import LoadingIcon from '../../../assets/icons/loading.svg';
 
 const animation = keyframes`
@@ -17,7 +18,7 @@ const Content = styled.span`
 		animation-iteration-count: infinite;
 		width: 16px;
 		height: 16px;
-		margin-left: ${({theme}) => theme.space(1)} ;
+		margin-left: ${({ theme }) => theme.space(1)};
 	}
 `;
 

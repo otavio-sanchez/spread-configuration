@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { TTheme } from '../../../../themes';
 
 const ContainerContent = styled.section<{
@@ -10,6 +11,7 @@ const ContainerContent = styled.section<{
 	max-width: ${({ theme }: { theme: TTheme }) => theme.size.container.maxSize};
 	width: ${({ alternative }): string => (alternative ? '100%' : '80vw')};
 	margin: auto;
+	overflow-x: hidden;
 	${({ maxWidth }): string => (maxWidth ? `max-width: ${maxWidth}px;` : '')}
 `;
 

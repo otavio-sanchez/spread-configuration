@@ -18,10 +18,10 @@ const RowContent = styled.div<{
 	spacingColumn?: number;
 }>`
 	width: 100%;
+	align-items: center;
 	position: relative;
 	display: grid;
 	grid-column-gap: 10px;
-	align-items: start;
 	${({ gridTemplateColumns }) =>
 		gridTemplateColumns && `grid-template-columns: ${gridTemplateColumns};`}
 	grid-row-gap: ${({ spacingRow }): string =>

@@ -13,6 +13,7 @@ export type TTheme = {
 			600: string;
 			700: string;
 			800: string;
+			900: string;
 		};
 		success: {
 			main: string;

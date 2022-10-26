@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { TTheme } from '../../../themes';
 
 const HeaderContent = styled.header`
