@@ -3,6 +3,7 @@ const prod = process.env.NODE_ENV === 'prod'
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CompressionPlugin = require("compression-webpack-plugin")
 require('dotenv').config({ path: './.env' }); 
 
 
@@ -39,8 +40,10 @@ module.exports = {
       "process.env": JSON.stringify(process.env)
     }),
     new HtmlWebpackPlugin({
-      template: 'public/index.html'
+      template: 'public/index.html',
+      favicon: 'public/favicon.ico'
     }),
     new MiniCssExtractPlugin(),
+    new CompressionPlugin(),
   ]
 }
