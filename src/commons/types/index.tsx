@@ -1,10 +1,10 @@
 export type TSpread = {
-	id: number;
+	id?: number;
 	spreadTypeId: number;
-	accountId: number;
+	accountId?: number | string;
 	symbol: string;
 	side: string | null;
-	notionalFrom: number;
-	notionalTo: number;
-	spreadPercentil: number;
+	notionalFrom: number | string;
+	notionalTo: number | string;
+	spreadPercentil: number | string;
 };
