@@ -9,9 +9,15 @@ function Button({
 	onClick,
 	color = 'primary',
 	typeButton = 'default',
+	disabled = false,
 }: IPropsButton) {
 	return (
-		<ButtonComponent color={color} onClick={onClick} typeButton={typeButton}>
+		<ButtonComponent
+			disabled={disabled}
+			color={color}
+			onClick={onClick}
+			typeButton={typeButton}
+		>
 			{children}
 		</ButtonComponent>
 	);

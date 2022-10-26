@@ -9,4 +9,5 @@ export interface IPropsComponentButton {
 	typeButton?: 'default' | 'icon';
 	color?: 'primary' | 'success' | 'error';
 	theme: TTheme;
+	disabled?: boolean;
 }

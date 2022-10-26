@@ -12,8 +12,9 @@ export const ButtonComponent = styled.button<IPropsComponentButton>`
 		`${theme.space(1)} ${theme.space(2)}`};
 	font-family: ${({ theme }: IPropsComponentButton) => theme.font.family};
 	font-size: ${({ theme }: IPropsComponentButton) => theme.size.font.medium};
-
+	${({ disabled }: IPropsComponentButton) => disabled && `opacity: 0.2;`}
 	&:hover {
-		opacity: 0.8;
+		opacity: ${({ disabled }: IPropsComponentButton) =>
+			disabled ? '0.2' : '0.7'};
 	}
 `;
